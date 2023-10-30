@@ -4,7 +4,7 @@ import string
 repeat = 1
 my_list = string.digits + string.ascii_letters
 product = itertools.product(my_list, repeat=repeat)
-password = "test"
+password = "abcd"
 
 while True:
     try:
@@ -14,6 +14,8 @@ while True:
         if temp == password:
             print("Şifre bulundu şifre: {}".format(temp))
             break
+        f = open("passwords.txt", "a")
+        f.write("\n{}".format(temp))
     except StopIteration:
         my_list_lenght = len(my_list)
         if repeat >= my_list_lenght:
